@@ -1,6 +1,257 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
+* {
+  font-family: "Sansation", sans-serif;
+}
+
+:root {
+   --background: #FAFAFA;
+   --dark-grey: #676767;
+   --light-grey: #c7c7c7;
+   --dark-blue: #143357;
+   --highlight: #275285;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--background);
+}
+
+/* Header CSS */
+#wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#top-header {
   box-sizing: border-box;
+  background-color: var(--dark-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+}
+
+.website-title {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.account-button {
+  text-decoration: none;
+  color: white;
+}
+
+.account-button:hover {
+  text-decoration: underline;
+}
+
+/* Navigation CSS */
+.nav-bar {
+  background-color: var(--dark-blue);
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: scale(1.1);
+}
+
+/* Main CSS */
+.welcome {
+  background-color: var(--highlight);
+  padding: 16px 0;
+}
+
+.welcome-text {
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  color: white;
+}
+
+/* Hero SEction */
+.hero-section {
+  background-image: url('/images/vehicles/delorean-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 650px;
+  padding: 32px;
+  display: flex;
+  align-items: start;
+}
+
+.hero-box {
+  background-color: var(--background);
+  padding: 18px 24px;
+  border-radius: 0.5rem;
+  width: 280px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero-text {
+  margin: 7px 0;
+  font-size: 1.2rem;
+}
+
+.hero-text::before {
+  content: '• ';
+}
+
+.hero-button {
+  width: 100%;
+  background-color: var(--highlight);
+  padding: 12px 16px;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.hero-button:hover {
+  background-color: var(--dark-blue);
+}
+
+/* Details Section */
+
+/* Upgrades */
+.details-section {
+  display: flex;
+  justify-content: center;
+  gap: 300px;
+}
+
+.upgrades-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.upgrades-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 1rem;
+}
+
+.upgrade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 12px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+}
+
+.upgrade-img {
+  border-radius: 0.3rem;
+}
+
+.upgrade-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Reviews */
+.reviews {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 18px 10px;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+}
+
+.review-image {
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+}
+
+.review-text {
+  font-size: 1.2rem;
+  margin: 0;
+}
+/* Footer CSS */
+
+footer {
+  padding: 12px 36px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--dark-blue);
+  margin-top: 2rem;
+  color: white;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 1250px) {
+  .details-section {
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .hero-section {
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .details-section {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .upgrades-main-container {
+    padding: 0 2rem;
+  }
+
+  .upgrades-container {
+    gap: 1rem;
+  }
+
+  .upgrade-img {
+    width: 100px;
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review {
+    width: 350px;
+  }
 }
