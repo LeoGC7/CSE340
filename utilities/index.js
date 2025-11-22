@@ -54,6 +54,33 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* *********************************
+ * Single vehicle detail HTML
+ * ********************************* */
+Util.buildDetailPage = function(vehicle) {
+  const price = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(vehicle.inv_price);
+  const mileage = new Intl.NumberFormat('en-US').format(vehicle.inv_miles);
+
+  let detailHTML = '<div id="detail-wrapper">';
+  detailHTML += `<div id="image-container"><img src="${vehicle.inv_image}" alt="${vehicle.inv_make} ${vehicle.inv_model} vehicle" /></div>`;
+  
+  detailHTML += '<div id="detail-content">';
+  detailHTML += `<h2 class="vehicle-title">${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>`;
+  detailHTML += `<p class="vehicle-price">Price: <span>${price}</span></p>`;
+  detailHTML += '<h3>Vehicle Details</h3>';
+  
+  detailHTML += '<ul id="detail-list">';
+  detailHTML += `<li><strong>Mileage:</strong> ${mileage}</li>`;
+  detailHTML += `<li><strong>Color:</strong> ${vehicle.inv_color}</li>`;
+  detailHTML += `<li><strong>Description:</strong> ${vehicle.inv_description}</li>`;
+  detailHTML += '</ul>';
+  
+  detailHTML += '</div>'; 
+  detailHTML += '</div>';
+
+  return detailHTML;
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

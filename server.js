@@ -19,7 +19,7 @@ const utilities = require("./utilities/")
  *************************/
 app.set("view engine", "ejs")
 app.use(expressLayouts)
-app.set("layout", "./layouts/layout") // not at views root
+app.set("layout", "./layouts/layout")
 
 /* ***********************
  * Routes
@@ -40,7 +40,6 @@ app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
   
-  // Custom logic to hide technical errors from the client
   if(err.status == 404){ 
     message = err.message
   } else {
@@ -49,7 +48,7 @@ app.use(async (err, req, res, next) => {
 
   res.render("errors/error", {
     title: err.status || 'Server Error',
-    message, // Sends the custom/generic message
+    message,
     nav
   })
 })

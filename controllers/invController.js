@@ -18,4 +18,34 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
+/* ***************************
+ * Inventory detail view
+ * ************************** */
+invCont.buildByInventoryId = async function (req, res, next) {
+  const inv_id = req.params.invId;
+  const data = await invModel.getInventoryById(inv_id);
+
+  if (!data) {
+    next({ status: 404, message: 'Sorry, that vehicle could not be found.' });
+    return;
+  }
+
+  const detailHTML = utilities.buildDetailPage(data);
+  let nav = await utilities.getNav();
+  const vehicleTitle = `${data.inv_make} ${data.inv_model}`;
+
+  res.render("./inventory/detail", {
+    title: vehicleTitle,
+    nav,
+    detailHTML,
+  });
+};
+
+/* ***************************
+ * Generate 500 error
+ * ************************** */
+invCont.throwError = async function (req, res, next) {
+  throw new Error("Deliberate 500 Server Error"); 
+};
+
 module.exports = invCont

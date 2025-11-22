@@ -211,10 +211,16 @@ body {
 footer {
   padding: 12px 36px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   background-color: var(--dark-blue);
   margin-top: 2rem;
   color: white;
+}
+
+.error-link {
+  color:white
 }
 
 /* Classifications CSS */
@@ -264,6 +270,57 @@ main {
   font-size: 1.2rem;
 }
 
+/* Detail view */
+#detail-wrapper {
+  /* Use Flexbox to manage the side-by-side/stacked layout */
+  display: flex;
+  flex-direction: row; /* Default to side-by-side for large screens */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem 5%;
+}
+
+/* Image styling */
+#image-container {
+  flex-basis: 50%; /* Image takes half the space on large screens */
+  max-width: 500px;
+  min-width: 300px; /* Ensure image isn't too small */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Content styling (details, price, etc.) */
+#detail-content {
+  flex-basis: 40%; /* Content takes slightly less than half */
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.vehicle-title {
+  color: var(--dark-blue);
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.vehicle-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--highlight);
+  margin-bottom: 1.5rem;
+}
+
 /* Error */
 .error-title {
   text-align: center;
@@ -279,6 +336,18 @@ main {
 @media screen and (max-width: 1250px) {
   .details-section {
     gap: 3rem;
+  }
+
+  #detail-wrapper {
+    flex-direction: column; 
+    align-items: center;
+    padding: 1rem 5%;
+  }
+
+  #image-container, #detail-content {
+    flex-basis: 100%; 
+    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -322,5 +391,15 @@ main {
 
   #inv-display {
     justify-content: center;
+  }
+
+  #detail-content {
+    padding: 0.5rem;
+  }
+  .vehicle-title {
+    font-size: 1.5rem;
+  }
+  .vehicle-price {
+    font-size: 1.2rem;
   }
 }

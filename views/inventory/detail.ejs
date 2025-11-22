@@ -1,0 +1,11 @@
+<%# Display the vehicle make and model in the main content heading %>
+<% if (title) { %>
+<h1 class="classificationTitle"><%= title %></h1>
+<% } else {
+  res.redirect('/')} 
+%>
+
+<%# messages() %>
+
+<%# Detail content built by utility function %>
+<%- detailHTML %>
