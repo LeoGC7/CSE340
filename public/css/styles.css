@@ -272,9 +272,8 @@ main {
 
 /* Detail view */
 #detail-wrapper {
-  /* Use Flexbox to manage the side-by-side/stacked layout */
   display: flex;
-  flex-direction: row; /* Default to side-by-side for large screens */
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
@@ -283,9 +282,9 @@ main {
 
 /* Image styling */
 #image-container {
-  flex-basis: 50%; /* Image takes half the space on large screens */
+  flex-basis: 50%;
   max-width: 500px;
-  min-width: 300px; /* Ensure image isn't too small */
+  min-width: 300px;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -298,9 +297,8 @@ main {
   border-radius: 0.5rem;
 }
 
-/* Content styling (details, price, etc.) */
 #detail-content {
-  flex-basis: 40%; /* Content takes slightly less than half */
+  flex-basis: 40%; 
   padding: 1rem;
   background-color: white;
   border-radius: 0.5rem;
@@ -330,6 +328,171 @@ main {
 .error-message {
  text-align: center;
  color: rgb(223, 65, 65)
+}
+
+/* Login Page */
+.page-content {
+    max-width: 500px; 
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.page-content h1 {
+    text-align: center;
+    color: var(--dark-blue);
+    margin-bottom: 1.5rem;
+}
+
+#loginForm {
+    background-color: white;
+    padding: 24px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#loginForm fieldset {
+    border: 1px solid var(--light-grey);
+    padding: 20px;
+    border-radius: 0.3rem;
+}
+
+#loginForm legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--highlight);
+    padding: 0 10px;
+}
+
+#loginForm label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--dark-grey);
+}
+
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--light-grey);
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+#loginForm input:focus {
+    border-color: var(--highlight);
+    outline: none;
+}
+
+#loginForm button[type="submit"] {
+    width: 100%;
+    background-color: var(--highlight);
+    padding: 12px 16px;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+#loginForm button[type="submit"]:hover {
+    background-color: var(--dark-blue);
+}
+
+.page-content p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.page-content p a {
+    color: var(--highlight);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.page-content p a:hover {
+    text-decoration: underline;
+}
+
+/* Register */
+#registrationForm {
+    max-width: 500px;
+    margin: 2rem auto; 
+    padding: 24px;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#registrationForm fieldset {
+    border: 1px solid var(--light-grey);
+    padding: 20px;
+    border-radius: 0.3rem;
+}
+
+#registrationForm legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--highlight);
+    padding: 0 10px;
+}
+
+#registrationForm label {
+    display: block; 
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--dark-grey);
+}
+
+#registrationForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--light-grey);
+    border-radius: 0.3rem;
+    box-sizing: border-box; 
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+#registrationForm input:focus {
+    border-color: var(--highlight);
+    outline: none;
+}
+
+.password-note {
+    font-size: 0.9em;
+    color: var(--dark-grey);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#registrationForm button[type="submit"] {
+    width: 100%;
+    background-color: var(--highlight);
+    padding: 12px 16px;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+#registrationForm button[type="submit"]:hover {
+    background-color: var(--dark-blue);
 }
 
 /* Responsiveness */
