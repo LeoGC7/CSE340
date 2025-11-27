@@ -1,0 +1,19 @@
+<main class="page-content">
+    <%- messages() %>
+
+    <% if (errors) { %>
+        <ul class="notice">
+            <% errors.array().forEach(error => { %>
+                <li><%= error.msg %></li>
+            <%  }) %>
+        </ul>
+    <% } %>
+
+    <h1><%= title %></h1>
+    <p>Use the links below to manage classifications and inventory.</p>
+
+    <div class="management-links">
+        <p><a href="/inv/add-classification">Add New Classification</a></p>
+        <p><a href="/inv/add-inventory">Add New Inventory Item</a></p>
+    </div>
+</main>

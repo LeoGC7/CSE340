@@ -48,4 +48,58 @@ invCont.throwError = async function (req, res, next) {
   throw new Error("Deliberate 500 Server Error"); 
 };
 
+/* ****************************************
+* Deliver inventory management view
+* *************************************** */
+invCont.buildManagement = async function (req, res, next) { 
+  let nav = await utilities.getNav()
+  res.render("inventory/management", {
+    title: "Vehicle Management",
+    nav,
+    errors: null, 
+  })
+}
+
+/* ****************************************
+* Deliver add classification view
+* *************************************** */
+invCont.buildAddClassification = async function(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("inventory/add-classification", {
+    title: "Add New Classification",
+    nav,
+    errors: null,
+  })
+}
+
+/* ****************************************
+* Process New Classification
+* *************************************** */
+invCont.addClassification = async function(req, res) {
+    const { classification_name } = req.body
+
+    const classResult = await invModel.addClassification(classification_name)
+
+    if (classResult) {
+        req.flash(
+            "notice",
+            `Successfully added classification ${classification_name}.`
+        )
+        let nav = await utilities.getNav()
+        res.status(201).render("inventory/management", {
+            title: "Vehicle Management",
+            nav,
+            errors: null,
+        })
+    } else {
+        req.flash("notice", "Sorry, adding the new classification failed.")
+        let nav = await utilities.getNav()
+        res.status(501).render("inventory/add-classification", {
+            title: "Add New Classification",
+            nav,
+            errors: null,
+        })
+    }
+}
+
 module.exports = invCont
