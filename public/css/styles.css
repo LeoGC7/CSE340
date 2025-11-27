@@ -495,6 +495,146 @@ main {
     background-color: var(--dark-blue);
 }
 
+/* Add Classification */
+#addClassificationForm {
+    max-width: 400px;
+    margin: 2rem auto; 
+    padding: 24px;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#addClassificationForm fieldset {
+    border: 1px solid var(--light-grey);
+    padding: 20px;
+    border-radius: 0.3rem;
+}
+
+#addClassificationForm legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--highlight);
+    padding: 0 10px;
+}
+
+#addClassificationForm label {
+    display: block; 
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--dark-grey);
+}
+
+#addClassificationForm input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--light-grey);
+    border-radius: 0.3rem;
+    box-sizing: border-box; 
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+#addClassificationForm input:focus {
+    border-color: var(--highlight);
+    outline: none;
+}
+
+#addClassificationForm button[type="submit"] {
+    width: 100%;
+    background-color: var(--highlight);
+    padding: 12px 16px;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+#addClassificationForm button[type="submit"]:hover {
+    background-color: var(--dark-blue);
+}
+
+/* Add inventory */
+#addInventoryForm {
+    max-width: 700px; 
+    margin: 2rem auto; 
+    padding: 30px;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#addInventoryForm fieldset {
+    border: 1px solid var(--light-grey);
+    padding: 20px;
+    border-radius: 0.3rem;
+}
+
+#addInventoryForm legend {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--highlight);
+    padding: 0 10px;
+}
+
+#addInventoryForm label {
+    display: block; 
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--dark-grey);
+}
+
+#addInventoryForm input:not([type="submit"]),
+#addInventoryForm textarea,
+#addInventoryForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--light-grey);
+    border-radius: 0.3rem;
+    box-sizing: border-box; 
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+#addInventoryForm input:focus,
+#addInventoryForm textarea:focus,
+#addInventoryForm select:focus {
+    border-color: var(--highlight);
+    outline: none;
+}
+
+/* Style the submit button */
+#addInventoryForm button[type="submit"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    padding: 12px 16px;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.2s;
+}
+
+#addInventoryForm button[type="submit"]:hover {
+    background-color: var(--highlight);
+}
+
+#classificationList {
+    margin-top: 5px;
+    height: 40px;
+}
+
 /* Responsiveness */
 @media screen and (max-width: 1250px) {
   .details-section {
