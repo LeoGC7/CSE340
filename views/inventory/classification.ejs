@@ -1,0 +1,12 @@
+<!-- Building the heading -->
+<% if (title) { %>
+<h1 class="classification-title"><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<!-- Message -->
+<%# messages() %>
+
+<!-- Building the Classification Grid -->
+ <%- grid %>
