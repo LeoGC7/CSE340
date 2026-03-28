@@ -19,4 +19,25 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
+/* ***************************
+ *  Build inventory item detail view
+ * ************************** */
+invCont.buildByInvId = async function (req, res, next) {
+  const inv_id = req.params.inventoryId
+  const data = await invModel.getInventoryByInvId(inv_id)
+  const detailHtml = await utilities.buildItemDetailHTML(data)
+  let nav = await utilities.getNav()
+  const vehicleName = `${data.inv_year} ${data.inv_make} ${data.inv_model}`
+
+  res.render("./inventory/detail", {
+    title: vehicleName,
+    nav,
+    detailHtml
+  })
+}
+
+invCont.triggerError = function (req, res, next) {
+  throw new Error('This is an intentional 500 status code error')
+}
+
 module.exports = invCont

@@ -1,0 +1,11 @@
+<% if (title) { %>
+  <h1 class="detail-title"><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<%# messages() %>
+
+<div class="detail-view-container">
+  <%- detailHtml %>
+</div>

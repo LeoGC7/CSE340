@@ -251,7 +251,6 @@ main {
   text-align: center;
   font-size: 40px;
   margin-bottom: 3.5rem;
-  color: var(--blue)
 }
 
 #inv-display {
@@ -314,6 +313,49 @@ main {
   text-decoration: none;
 }
 
+
+/* ===== Detail Styles =====*/
+.detail-title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 3.5rem;
+}
+
+.detail-view-container {
+  display: flex;
+  justify-content: center;
+}
+
+#vehicle-detail-display {
+  display: flex;
+  max-width: 1000px;
+  width: 95%;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+#vehicle-detail-display img {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+#vehicle-details {
+  padding: 0.5rem 2rem
+}
+
+#vehicle-details h2 {
+  font-size: 32px;
+}
+
+#vehicle-details p {
+  color: var(--dark-grey);
+  border-top: 1px solid var(--light-grey);
+  padding: 1rem 0rem;
+  margin: 0;
+}
+
 /* ===== Footer styles ===== */
 footer {
   padding: 1rem;
@@ -324,6 +366,35 @@ footer {
   margin: 0;
   text-align: center;
   color: white;
+}
+
+.error {
+  text-align: center;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.error a {
+  text-decoration: none;
+  color: rgb(252, 54, 54);
+}
+
+.error a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Error Styles =====*/
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+.error-title, .error-message {
+  text-align: center;
+  color: rgb(194, 65, 65);
 }
 
 /* ===== Responsiveness ===== */
@@ -397,6 +468,26 @@ footer {
   .reviews-container {
     flex-direction: column;
     align-items: center;
+  }
+
+  .detail-title {
+    margin-bottom: 2rem;
+  }
+
+  .detail-view-container {
+    padding: 0rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  #vehicle-detail-display {
+    flex-direction: column;
+    width:350px;
+  }
+
+  #vehicle-detail-display img {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 1rem;
   }
 }
 
