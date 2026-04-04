@@ -437,6 +437,7 @@ footer {
   font-size: 14px;
   top: -3px;
   left: 20px;
+  color: var(--blue)
 }
 
 .form-field:focus-within .form-label {
@@ -449,7 +450,7 @@ footer {
   padding-left: 0.3rem;
   padding-top: 0.2rem;
   line-height: 32px;
-  border: 1px solid var(--black);
+  border: 1px solid var(--blue);
   border-radius: 0.3rem;
   color: var(--black)
 }
@@ -457,6 +458,14 @@ footer {
 .form-input:focus {
   border: 1px solid var(--blue);
   outline: 1px solid var(--blue);
+}
+
+.select-input {
+  height: 40px;
+}
+
+textarea {
+  resize: vertical;
 }
 
 .register-text {
@@ -513,6 +522,42 @@ footer {
 
 .notice-errors li {
   color:rgb(252, 54, 54);
+}
+
+/* ===== Management Styles ===== */
+.management-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.management-title {
+  margin-top: 3rem;
+}
+
+.management-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.management-link {
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  color: white;
+  background-color: var(--blue);
+  border-radius: 0.3rem;
+  transition: transform 0.2s ease;
+}
+
+.management-link:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Add Classification ===== */
+.add-classification-instructions {
+  font-size: 12px; 
+  color: var(--light-grey); 
+  margin-top: 5px;
 }
 
 /* ===== Responsiveness ===== */

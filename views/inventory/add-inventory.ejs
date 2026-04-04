@@ -1,0 +1,69 @@
+<div class="login-wrapper">
+    <h1 class="login-title"><%= title %></h1>
+
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice-errors">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
+    <form action="/inv/add-inventory" class="login-form" method="POST" style="width: 500px;">
+        
+        <fieldset class="form-field" style="margin-top: 0;">
+            <label for="classificationList" class="form-label">Classification</label>
+            <%- classificationSelect %>
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_make" class="form-label">Make</label>
+            <input required type="text" class="form-input" name="inv_make" id="inv_make" value="<%= locals.inv_make %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_model" class="form-label">Model</label>
+            <input required type="text" class="form-input" name="inv_model" id="inv_model" value="<%= locals.inv_model %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_year" class="form-label">Year</label>
+            <input required type="text" class="form-input" name="inv_year" id="inv_year" pattern="\d{4}" value="<%= locals.inv_year %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_description" class="form-label">Description</label>
+            <textarea required class="form-input" name="inv_description" id="inv_description" rows="4"><%= locals.inv_description %></textarea>
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_image" class="form-label">Image Path</label>
+            <input required type="text" class="form-input" name="inv_image" id="inv_image" value="<%= locals.inv_image || '/images/vehicles/no-image.png' %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_thumbnail" class="form-label">Thumbnail Path</label>
+            <input required type="text" class="form-input" name="inv_thumbnail" id="inv_thumbnail" value="<%= locals.inv_thumbnail || '/images/vehicles/no-image-tn.png' %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_price" class="form-label">Price</label>
+            <input required type="number" class="form-input" name="inv_price" id="inv_price" step="any" value="<%= locals.inv_price %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_miles" class="form-label">Miles</label>
+            <input required type="number" class="form-input" name="inv_miles" id="inv_miles" value="<%= locals.inv_miles %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_color" class="form-label">Color</label>
+            <input required type="text" class="form-input" name="inv_color" id="inv_color" value="<%= locals.inv_color %>">
+        </fieldset>
+
+        <div class="form-button-container">
+            <button type="submit" class="form-button">Add Vehicle</button>
+        </div>
+    </form>
+</div>

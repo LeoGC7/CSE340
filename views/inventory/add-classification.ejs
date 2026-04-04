@@ -1,0 +1,24 @@
+<div class="login-wrapper">
+    <h1 class="login-title"><%= title %></h1>
+
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice-error">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
+    <form action="/inv/add-classification" class="login-form" method="POST">
+        <fieldset class="form-field">
+            <label for="classification_name" class="form-label">Classification Name</label>
+            <input required type="text" class="form-input" name="classification_name" id="classification_name" pattern="^[a-zA-Z0-9]+$" value="<%= locals.classification_name %>">
+            <span class="add-classification-instructions">Name must be alphanumeric only.</span>
+        </fieldset>
+        
+        <div class="form-button-container">
+            <button type="submit" class="form-button">Add Classification</button>
+        </div>
+    </form>
+</div>
