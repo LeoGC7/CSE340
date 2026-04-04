@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+    <h1 class="login-title"><%= title %></h1>
+
+    <% if (errors) { %>
+      <ul class="notice-errors">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
+    <form id="loginForm" action="/account/login" class="login-form" method="POST">
+        <fieldset class="form-field">
+            <label for="account_email" class="form-label">Email</label>
+            <input required type="email" class="form-input" name="account_email" id="account_email">
+        </fieldset>
+        <fieldset class="form-field">
+            <label for="account_password" class="form-label">Password</label>
+            <input required type="password" class="form-input" name="account_password" id="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+            <p class="register-text">No account? <a href="/account/register" class="register">Sign-up</a></p>
+        </fieldset>
+        <div class="form-button-container">
+            <button class="form-button">Login</button>
+        </div>
+    </form>
+    <%- messages() %>
+</div>

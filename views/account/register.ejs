@@ -1,0 +1,33 @@
+<div class="login-wrapper">
+    <h1 class="login-title"><%= title %></h1>
+    <form action="/account/register" class="login-form" method="POST">
+        <fieldset class="form-field">
+            <label for="account_firstname" class="form-label">First name</label>
+            <input required type="text" class="form-input" name="account_firstname" id="account_first_name" value="<%= locals.account_firstname %>">
+        </fieldset>
+        <fieldset class="form-field">
+            <label for="account_lastname" class="form-label">Last name</label>
+            <input required type="text" class="form-input" name="account_lastname" id="account_last_name" value="<%= locals.account_firstname %>">
+        </fieldset>
+        <fieldset class="form-field">
+            <label for="account_email" class="form-label">Email</label>
+            <input required type="email" class="form-input" name="account_email" id="account_email" value="<%= locals.account_firstname %>">
+        </fieldset>
+        <fieldset class="form-field">
+            <label for="account_password" class="form-label">Password</label>
+            <input required type="password" class="form-input" name="account_password" id="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+            <span class="password-pattern">Passwords must: <br>- Be at least 12 characters <br> - Contain at least 1 number <br> - Contain 1 capital letter <br> - Contain 1 special character</span> 
+        </fieldset>
+        <div class="form-button-container">
+            <button class="form-button">Register</button>
+        </div>
+    </form>
+    <%- messages() %>
+    <% if (errors) { %>
+    <ul class="notice-errors">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <%  }) %>
+    </ul>
+    <% } %>
+</div>
