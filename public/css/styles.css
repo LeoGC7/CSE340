@@ -330,7 +330,7 @@ main {
 
 #vehicle-detail-display {
   display: flex;
-  max-width: 1000px;
+  max-width: 1200px;
   width: 95%;
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
@@ -341,6 +341,9 @@ main {
 #vehicle-detail-display img {
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
+  width: 600px;
+  object-fit: cover;
+  object-position: center;
 }
 
 #vehicle-details {
@@ -412,6 +415,7 @@ footer {
 .login-title {
   margin: 0;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 
 .login-form {
@@ -419,7 +423,7 @@ footer {
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
-  width: 350px;
+  width: 500px;
 }
 
 .form-field {
@@ -462,6 +466,7 @@ footer {
 
 .select-input {
   height: 40px;
+  width: 100%;
 }
 
 textarea {
@@ -551,6 +556,48 @@ textarea {
 
 .management-link:hover {
   transform: scale(1.05);
+}
+
+.manage-inventory {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  margin-top: 2.5rem;
+  box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+  margin-bottom: 3rem;
+}
+
+.manage-inventory-title {
+  margin: 0;
+  text-align: center;
+}
+
+.manage-inventory-text {
+  color: var(--light-grey)
+}
+
+#inventoryDisplay {
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+.table-row td {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.table-button {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: var(--blue);
+  border-radius: 0.3rem;
+  transition: brackground-color 0.2s ease;
+  font-size: 14px;
+}
+
+.table-button:hover {
+  background-color: #183da3;
 }
 
 /* ===== Add Classification ===== */
@@ -649,8 +696,15 @@ textarea {
 
   #vehicle-detail-display img {
     border-top-left-radius: 1rem;
-    border-bottom-left-radius: unset;
+    border-bottom-left-radius: 0;
     border-top-right-radius: 1rem;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .login-form {
+    width: 340px;
   }
 }
 

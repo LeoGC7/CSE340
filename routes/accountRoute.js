@@ -3,6 +3,8 @@ const utilities = require("../utilities/")
 const router = new express.Router()
 const accountController = require("../controllers/accountController")
 const regValidate = require('../utilities/account-validation')
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
 router.get("/register", utilities.handleErrors(accountController.buildRegister));
@@ -19,9 +21,10 @@ router.post(
   "/login",
   regValidate.loginRules(),
   regValidate.checkLoginData,
-  (req, res) => {
-    res.status(200).send('login process')
-  }
+  utilities.handleErrors(accountController.accountLogin)
 )
+
+// Route to deliver the account management view
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement));
 
 module.exports = router;

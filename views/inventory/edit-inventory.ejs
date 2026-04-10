@@ -10,7 +10,7 @@
      </ul>
     <% } %>
 
-    <form action="/inv/add-inventory" class="login-form" method="POST">
+    <form action="/inv/update" class="login-form" method="POST" id="updateForm">
         
         <fieldset class="form-field" style="margin-top: 0;">
             <label for="classificationList" class="form-label">Classification</label>
@@ -63,7 +63,13 @@
         </fieldset>
 
         <div class="form-button-container">
-            <button type="submit" class="form-button">Add Vehicle</button>
+            <button type="submit" class="form-button" disabled>Update Vehicle</button>
+
+            <input type="hidden" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
         </div>
     </form>
 </div>
+
+<script src="../../js/inv-update.js"></script>

@@ -1,0 +1,18 @@
+<div class="login-wrapper">
+    <h1 class="login-title"><%= title %></h1>
+
+    <%- messages() %>
+
+    <% if (errors) { %>
+      <ul class="notice-error">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
+    <div class="maangement">
+        <h2 class="management-title">Welcome!</h2>
+        <p>You're logged in.</p>
+    </div>
+</div>
