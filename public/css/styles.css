@@ -511,6 +511,10 @@ textarea {
   transform: scale(1.05);
 }
 
+.delete-button {
+  background-color: rgb(252, 54, 54)
+}
+
 .message-list {
   list-style: none;
   padding: 0;
@@ -574,6 +578,10 @@ textarea {
 
 .manage-inventory-text {
   color: var(--light-grey)
+}
+
+.delete-text {
+  color: rgb(252, 54, 54); font-weight: bold; margin: 0; text-align: center;
 }
 
 #inventoryDisplay {

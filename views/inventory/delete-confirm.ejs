@@ -1,0 +1,45 @@
+<div class="login-wrapper">
+    <h1 class="login-title"><%= title %></h1>
+    
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice-error">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
+    <div class="manage-inventory">
+        <p class="manage-inventory-text delete-text">Confirm Deletion - The delete is permanent.</p>
+    </div>
+
+    <form action="/inv/delete" class="login-form" method="POST">
+        
+        <fieldset class="form-field">
+            <label for="inv_make" class="form-label">Make</label>
+            <input type="text" readonly class="form-input" name="inv_make" id="inv_make" value="<%= locals.inv_make %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_model" class="form-label">Model</label>
+            <input type="text" readonly class="form-input" name="inv_model" id="inv_model" value="<%= locals.inv_model %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_year" class="form-label">Year</label>
+            <input type="text" readonly class="form-input" name="inv_year" id="inv_year" value="<%= locals.inv_year %>">
+        </fieldset>
+
+        <fieldset class="form-field">
+            <label for="inv_price" class="form-label">Price</label>
+            <input type="text" readonly class="form-input" name="inv_price" id="inv_price" value="<%= locals.inv_price %>">
+        </fieldset>
+
+        <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
+
+        <div class="form-button-container">
+            <button type="submit" class="form-button delete-button">Delete Item</button>
+        </div>
+    </form>
+</div>
