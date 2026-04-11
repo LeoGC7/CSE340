@@ -114,4 +114,76 @@ validate.checkLoginData = async (req, res, next) => {
   next()
 }
 
+/* ******************************
+ * Account Update Validation Rules
+ * ***************************** */
+validate.updateAccountRules = () => {
+  return [
+    body("account_firstname").trim().escape().notEmpty().withMessage("Please provide a first name."),
+    body("account_lastname").trim().escape().notEmpty().withMessage("Please provide a last name."),
+    body("account_email").trim().isEmail().normalizeEmail().withMessage("A valid email is required.")
+      .custom(async (account_email, { req }) => {
+        const account = await accountModel.getAccountByEmail(account_email)
+        if (account && account.account_id != req.body.account_id) {
+          throw new Error("This email already exists. Please use a different email.")
+        }
+      })
+  ]
+}
+
+/* ******************************
+ * Check Update Data and Return Errors
+ * ***************************** */
+validate.checkUpdateData = async (req, res, next) => {
+  const { account_firstname, account_lastname, account_email, account_id } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    res.render("account/account-update", {
+      errors,
+      title: "Edit Account",
+      nav,
+      account_firstname,
+      account_lastname,
+      account_email,
+      account_id
+    })
+    return
+  }
+  next()
+}
+
+/* ******************************
+ * Password Update Validation Rules
+ * ***************************** */
+validate.updatePasswordRules = () => {
+  return [
+    body("account_password").trim().notEmpty()
+      .isStrongPassword({ minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 })
+      .withMessage("Password do not meet the requirements.")
+  ]
+}
+
+/* ******************************
+ * Check Password Data and Return Errors
+ * ***************************** */
+validate.checkPasswordData = async (req, res, next) => {
+  const { account_id } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    res.render("account/account-update", {
+      errors,
+      title: "Edit Account",
+      nav,
+      account_password,
+      account_id
+    })
+    return
+  }
+  next()
+}
+
 module.exports = validate

@@ -11,8 +11,15 @@
      </ul>
     <% } %>
 
-    <div class="maangement">
-        <h2 class="management-title">Welcome!</h2>
-        <p>You're logged in.</p>
+    <div class="management-wrapper">
+        <h2 class="login-title">Welcome <%= locals.accountData.account_firstname %></h2>
+        <p><a href="/account/update/<%= locals.accountData.account_id %>" class="update-button">Update Account Information</a></p>
+        <% if (locals.accountData.account_type === 'Employee' || locals.accountData.account_type === 'Admin') { %>
+            <div class="manage-inventory admin">
+                <h3 class="manage-inventory-title">Inventory Management</h3>
+                <p class="manage-inventory-text">You have administrative privileges to manage the inventory.</p>
+                <p><a href="/inv/" class="management-link">Manage Inventory</a></p>
+            </div>
+        <% } %>
     </div>
 </div>

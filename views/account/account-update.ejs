@@ -1,0 +1,45 @@
+<div class="login-wrapper">
+    <h1 class="login-title"><%= title %></h1>
+    
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice-error">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
+    <form action="/account/update" class="login-form" method="POST">
+        <h3>Account Update</h3>
+        <fieldset class="form-field">
+            <label for="account_firstname" class="form-label">First Name</label>
+            <input type="text" class="form-input" name="account_firstname" id="account_firstname" required value="<%= locals.account_firstname || locals.accountData.account_firstname %>">
+        </fieldset>
+        <fieldset class="form-field">
+            <label for="account_lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-input" name="account_lastname" id="account_lastname" required value="<%= locals.account_lastname || locals.accountData.account_lastname %>">
+        </fieldset>
+        <fieldset class="form-field">
+            <label for="account_email" class="form-label">Email Address</label>
+            <input type="email" class="form-input" name="account_email" id="account_email" required value="<%= locals.account_email || locals.accountData.account_email %>">
+        </fieldset>
+        <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+        <div class="form-button-container">
+            <button type="submit" class="form-button">Update Info</button>
+        </div>
+    </form>
+
+    <form action="/account/update-password" class="login-form" method="POST">
+        <h3>Change Password</h3>
+        <p class="register-text">Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character.</p>
+        <fieldset class="form-field">
+            <label for="account_password" class="form-label">New Password</label>
+            <input type="password" class="form-input" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+        </fieldset>
+        <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+        <div class="form-button-container">
+            <button type="submit" class="form-button">Change Password</button>
+        </div>
+    </form>
+</div>
