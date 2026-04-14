@@ -22,4 +22,30 @@
             </div>
         <% } %>
     </div>
+
+    <div class="my-garage">
+        <h3 class="my-garage-title">My Garage (<%= favorites ? favorites.length : 0 %>)</h3>
+        
+        <% if (favorites && favorites.length > 0) { %>
+            <ul id="favorite-cards">
+                <% favorites.forEach(fav => { %>
+                    <li class="favorite-card">
+                        <a class="fav-image-container" href="/inv/detail/<%= fav.inv_id %>">
+                            <img class="favorite-image" src="<%= fav.inv_thumbnail %>" alt="<%= fav.inv_make %> <%= fav.inv_model %>">
+                        </a>
+                        <h4 class="favorite-name"><%= fav.inv_make %> <%= fav.inv_model %></h4>
+                        
+                        <form action="/account/remove-favorite" method="POST">
+                            <input type="hidden" name="inv_id" value="<%= fav.inv_id %>">
+                            <button class="remove-button" type="submit">
+                                Remove
+                            </button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>Your garage is currently empty. Go browse our inventory to save your dream cars!</p>
+        <% } %>
+    </div>
 </div>

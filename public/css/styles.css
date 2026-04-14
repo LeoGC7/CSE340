@@ -420,7 +420,7 @@ footer {
   align-items: center;
   justify-content: center;
   margin-bottom: 6rem;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .login-title {
@@ -642,6 +642,90 @@ textarea {
   font-size: 12px; 
   color: var(--light-grey); 
   margin-top: 5px;
+}
+
+/* ===== Favorite Styles ===== */
+.garage-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.garage-button {
+  background-color: var(--blue);
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.garage-button:hover {
+  transform: scale(1.05);
+}
+
+.garage-title {
+  margin: 0;
+}
+
+.my-garage {
+  margin: 2rem;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+}
+
+.my-garage-title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+#favorite-cards {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.favorite-card {
+  padding: 0.5rem;
+  width: 230px;
+  text-align: center;
+}
+
+.fav-image-container {
+  display: block;
+  width: 230px;
+  height: 150px;
+}
+
+.favorite-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+}
+
+.favorite-name {
+  margin: 0;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.remove-button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* ===== Responsiveness ===== */

@@ -242,3 +242,13 @@ SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'), inv_thumbna
 UPDATE public.account SET account_type = 'Employee' WHERE account_email = 'happy@340.edu';
 
 UPDATE public.account SET account_type = 'Admin' WHERE account_email = 'manager@340.edu';
+
+-- Queries for week 06
+CREATE TABLE IF NOT EXISTS public.favorites (
+    favorite_id SERIAL PRIMARY KEY,
+    account_id INT NOT NULL,
+    inv_id INT NOT NULL,
+    favorite_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_account FOREIGN KEY (account_id) REFERENCES public.account (account_id) ON DELETE CASCADE,
+    CONSTRAINT fk_inventory FOREIGN KEY (inv_id) REFERENCES public.inventory (inv_id) ON DELETE CASCADE
+);

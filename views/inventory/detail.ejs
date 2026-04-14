@@ -4,8 +4,22 @@
   res.redirect('/')
 } %>
 
-<%# messages() %>
-
 <div class="detail-view-container">
   <%- detailHtml %>
+</div>
+
+<div class="garage-action">
+    <% if (locals.loggedin) { %>
+        <h3 class="garage-title">Love this vehicle?</h3>
+        <form action="/account/add-favorite" method="POST">
+            <input type="hidden" name="inv_id" value="<%= inv_id %>">
+            
+            <button type="submit" class="garage-button">
+                Save to Garage
+            </button>
+        </form>
+    <% } else { %>
+        <p><strong><a href="/account/login">Log in</a></strong> to save this vehicle to your personal garage.</p>
+    <% } %>
+    <%- messages() %>
 </div>

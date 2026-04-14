@@ -2,6 +2,7 @@ const utilities = require("../utilities/")
 const accountModel = require("../models/account-model")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
+const favModel = require("../models/favorite-model")
 
 const bcrypt = require("bcryptjs")
 
@@ -122,10 +123,16 @@ async function accountLogin(req, res) {
  * ************************************ */
 async function buildManagement(req, res, next) {
   let nav = await utilities.getNav()
+
+  const account_id = res.locals.accountData.account_id;
+
+  const favorites = await favModel.getFavoritesByAccountId(account_id)
+
   res.render("account/management", {
     title: "Account Management",
     nav,
     errors: null,
+    favorites,
   })
 }
 
@@ -226,4 +233,42 @@ async function accountLogout(req, res, next) {
   res.redirect("/")
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement, buildAccountUpdate, updateAccount, updatePassword, accountLogout}
+/* ****************************************
+ * Process add a favorite
+ * *************************************** */
+async function addFavorite(req, res, next) {
+  const inv_id = parseInt(req.body.inv_id)
+  const account_id = res.locals.accountData.account_id
+
+  const exists = await favModel.checkFavorite(account_id, inv_id)
+  if (exists) {
+    req.flash("notice", "This vehicle is already in your garage.")
+    return res.redirect(`/inv/detail/${inv_id}`)
+  }
+
+  const result = await favModel.addFavorite(account_id, inv_id)
+  if (result) {
+    req.flash("notice", "Vehicle sucessfully added to your garage!")
+  } else {
+    req.flash("notice", "Sorry, we could not add this vehicle to your garage.")
+  }
+  res.redirect(`/inv/detail/${inv_id}`)
+}
+
+/* ****************************************
+ * Process remove a favorite
+ * *************************************** */
+async function removeFavorite(req, res, next) {
+  const inv_id = parseInt(req.body.inv_id)
+  const account_id = res.locals.accountData.account_id
+
+  const result = await favModel.removeFavorite(account_id, inv_id)
+  if (result) {
+    req.flash("notice", "Vehicle removed from your garage.")
+  } else {
+    req.flash("notice", "Sorry, failed to remove vehicle.")
+  }
+  res.redirect("/account/")
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement, buildAccountUpdate, updateAccount, updatePassword, accountLogout, addFavorite, removeFavorite}

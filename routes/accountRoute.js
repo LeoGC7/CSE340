@@ -51,4 +51,18 @@ router.post(
 // Process the lougout
 router.get("/logout", utilities.handleErrors(accountController.accountLogout))
 
+// Process add a favorite vehicle
+router.post(
+  "/add-favorite",
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.addFavorite)
+)
+
+// Process remove a favorite vehicle
+router.post(
+  "/remove-favorite",
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.removeFavorite)
+)
+
 module.exports = router;
